@@ -1,0 +1,15 @@
+header{
+  text-align: center;
+}
+
+.container{
+  padding:30px 0;
+}
+
+.recipe-list{
+
+}
+.recipe-list > div{
+  width: 350px;
+  margin:15px;
+}

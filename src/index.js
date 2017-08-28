@@ -5,6 +5,7 @@ import {BrowserRouter} from 'react-router-dom';
 //import any assets we may need
 import './libraries/bootstrap/css/bootstrap.min.css';
 //import './libraries/bootstrap/js/bootstrap.min.js';
+import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import './app.css';
 
 //main app container

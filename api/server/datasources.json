@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "nhl_draft_tool": {
+    "host": "localhost",
+    "port": 8889,
+    "database": "nhl_draft_tool",
+    "password": "root",
+    "name": "nhl_draft_tool",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

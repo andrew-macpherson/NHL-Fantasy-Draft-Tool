@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "nhl_draft_tool"
+  },
+  "AccessToken": {
+    "dataSource": "nhl_draft_tool",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "nhl_draft_tool",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "nhl_draft_tool",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "nhl_draft_tool",
+    "public": false
+  }
+}

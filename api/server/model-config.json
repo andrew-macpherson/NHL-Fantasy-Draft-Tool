@@ -34,5 +34,9 @@
   "Role": {
     "dataSource": "nhl_draft_tool",
     "public": false
+  },
+  "Player": {
+    "dataSource": "nhl_draft_tool",
+    "public": true
   }
 }

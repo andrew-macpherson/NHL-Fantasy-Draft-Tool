@@ -1,0 +1,219 @@
+{
+  "name": "Player",
+  "plural": "Players",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "LastName": {
+      "type": "string",
+      "required": true
+    },
+    "FirstName": {
+      "type": "string",
+      "required": true
+    },
+    "JerseyNum": {
+      "type": "number",
+      "required": false
+    },
+    "Position": {
+      "type": "string",
+      "required": false
+    },
+    "Height": {
+      "type": "string",
+      "required": false
+    },
+    "Weight": {
+      "type": "string",
+      "required": false
+    },
+    "BirthDate": {
+      "type": "string",
+      "required": false
+    },
+    "Age": {
+      "type": "string",
+      "required": false
+    },
+    "BirthCity": {
+      "type": "string",
+      "required": false
+    },
+    "BirthCountry": {
+      "type": "string",
+      "required": false
+    },
+    "Rookie": {
+      "type": "string",
+      "required": false
+    },
+    "TeamID": {
+      "type": "number",
+      "required": false
+    },
+    "TeamAbbr": {
+      "type": "string",
+      "required": false
+    },
+    "TeamCity": {
+      "type": "string",
+      "required": false
+    },
+    "TeamName": {
+      "type": "string",
+      "required": false
+    },
+    "GamesPlayed": {
+      "type": "number",
+      "required": false
+    },
+    "Goals": {
+      "type": "number",
+      "required": false
+    },
+    "Assists": {
+      "type": "number",
+      "required": false
+    },
+    "Points": {
+      "type": "number",
+      "required": false
+    },
+    "HatTricks": {
+      "type": "number",
+      "required": false
+    },
+    "PowerplayGoals": {
+      "type": "number",
+      "required": false
+    },
+    "PowerplayAssists": {
+      "type": "number",
+      "required": false
+    },
+    "PowerplayPoints": {
+      "type": "number",
+      "required": false
+    },
+    "ShorthandedGoals": {
+      "type": "number",
+      "required": false
+    },
+    "ShorthandedAssists": {
+      "type": "number",
+      "required": false
+    },
+    "ShorthandedPoints": {
+      "type": "number",
+      "required": false
+    },
+    "GameWinningGoals": {
+      "type": "number",
+      "required": false
+    },
+    "GameTyingGoals": {
+      "type": "number",
+      "required": false
+    },
+    "PlusMinus": {
+      "type": "string",
+      "required": false
+    },
+    "Shots": {
+      "type": "string",
+      "required": false
+    },
+    "ShotPercentage": {
+      "type": "string",
+      "required": false
+    },
+    "Hits": {
+      "type": "string",
+      "required": false
+    },
+    "Faceoffs": {
+      "type": "string",
+      "required": false
+    },
+    "FaceoffWins": {
+      "type": "string",
+      "required": false
+    },
+    "FaceoffLosses": {
+      "type": "string",
+      "required": false
+    },
+    "FaceoffPercent": {
+      "type": "string",
+      "required": false
+    },
+    "Penalties": {
+      "type": "number",
+      "required": false
+    },
+    "PenaltyMinutes": {
+      "type": "number",
+      "required": false
+    },
+    "Wins": {
+      "type": "string",
+      "required": false
+    },
+    "Losses": {
+      "type": "string",
+      "required": false
+    },
+    "OvertimeWins": {
+      "type": "string",
+      "required": false
+    },
+    "OvertimeLosses": {
+      "type": "string",
+      "required": false
+    },
+    "GoalsAgainst": {
+      "type": "string",
+      "required": false
+    },
+    "ShotsAgainst": {
+      "type": "string",
+      "required": false
+    },
+    "Saves": {
+      "type": "string",
+      "required": false
+    },
+    "GoalsAgainstAverage": {
+      "type": "string",
+      "required": false
+    },
+    "SavePercentage": {
+      "type": "string",
+      "required": false
+    },
+    "Shutouts": {
+      "type": "string",
+      "required": false
+    },
+    "GamesStarted": {
+      "type": "string",
+      "required": false
+    },
+    "CreditForGame": {
+      "type": "string",
+      "required": false
+    },
+    "MinutesPlayed": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -38,5 +38,9 @@
   "Player": {
     "dataSource": "nhl_draft_tool",
     "public": true
+  },
+  "Gm": {
+    "dataSource": "nhl_draft_tool",
+    "public": true
   }
 }

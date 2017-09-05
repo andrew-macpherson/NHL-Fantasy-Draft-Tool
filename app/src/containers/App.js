@@ -1,19 +1,20 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+
+// Import Components
 import {PlayerList} from '../components/PlayerList.js';
 import {Player} from '../components/Player.js';
 
-import {Gms} from '../components/Gms.js';
-import {Gm} from '../components/Gm.js';
-
+//Import Containers
 import {Home} from '../containers/Home.js';
+import {GmsContainer} from '../containers/Gms.js';
+import {GmContainer} from '../containers/Gm.js';
 
 class App extends React.Component {
   render() {
     return (
     <div>
-
       <nav className="navbar navbar-toggleable-lg navbar-dark">
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -40,8 +41,8 @@ class App extends React.Component {
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/player/:id" component={Player} />
 
-        <Route exact={true} path="/gms" component={Gms} />
-        <Route exact={true} path="/gm/:id" component={Gm} />
+        <Route exact={true} path="/gms" component={GmsContainer} />
+        <Route exact={true} path="/gm/:id" component={GmContainer} />
       </div>
     </div>
     )

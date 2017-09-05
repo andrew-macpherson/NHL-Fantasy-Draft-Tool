@@ -2,7 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
-export class Gm extends React.Component{
+//Import Components
+import {Gm} from '../components/Gm.js';
+
+export class GmContainer extends React.Component{
 	constructor(props){
 	    super(props);
 	}
@@ -16,7 +19,7 @@ export class Gm extends React.Component{
 
 		return(
 			<div>
-				GM Details
+				<Gm />
 			</div>
 		)
 	}

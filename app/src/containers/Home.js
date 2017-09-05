@@ -12,7 +12,7 @@ export class Home extends React.Component{
 
   componentDidMount(){
     // GET feed data
-    fetch('https://api.mysportsfeeds.com/v1.1/pull/nhl/2016-2017-regular/cumulative_player_stats.json?playerstats=G,A,Pts,Sh', {
+    fetch('http://localhost:3001/api/Players', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
@@ -21,28 +21,10 @@ export class Home extends React.Component{
     }).then(function(response) {
       return response.json();
     }).then(function(playerData){
-      const players = playerData.cumulativeplayerstats.playerstatsentry;
+      const players = playerData;
       return players;
     }).then((players) => {
-
-      var playersObj = [];
-      for(var key in players){
-        let player = {
-          'ID': players[key].player.ID,
-          'City': players[key].team.City,
-          'TeamName': players[key].team.Name,
-          'FirstName': players[key].player.FirstName,
-          'LastName': players[key].player.LastName,
-          'Age': players[key].player.Age,
-          'GamesPlayed': players[key].stats.GamesPlayed['#text'],
-          'Goals': players[key].stats.stats.Goals['#text'],
-          'Assists': players[key].stats.stats.Assists['#text'],
-          'PTS': players[key].stats.stats.Points['#text'],
-        };
-        playersObj.push(player);
-      }
-
-      this.setState({players:playersObj});
+      this.setState({players:players});
     })
     .catch(function(err) {
       console.log(err);

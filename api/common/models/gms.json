@@ -1,0 +1,27 @@
+{
+  "name": "Gm",
+  "plural": "Gms",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "LastName": {
+      "type": "string",
+      "required": true
+    },
+    "FirstName": {
+      "type": "string",
+      "required": true
+    },
+    "TeamName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -2,6 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
+//Import Components
+import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
+
+
+//Constants 
+
+const gmSelector = () => (<PlayerListGmSelector />);
+
 export class PlayerList extends React.Component {
   constructor(props){
     super(props);
@@ -11,6 +19,10 @@ export class PlayerList extends React.Component {
       defaultSortOrder: 'asc',  // default sort order
       onSortChange: this.props.onSortChange
     };
+
+    this.editProps = {
+      mode: 'click'
+    }
   }
 
   render(){
@@ -20,17 +32,20 @@ export class PlayerList extends React.Component {
           data={this.props.players} 
           version='4' 
           remote={ true }
-          options={ this.options }>
-          <TableHeaderColumn dataField='ID' isKey>Player ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='City' dataSort={ true }>City</TableHeaderColumn>
-          <TableHeaderColumn dataField='TeamName' dataSort={ true }>Team Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='FirstName' dataSort={ true }>First Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='LastName' dataSort={ true }>Last Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='Age' dataSort={ true }>Age</TableHeaderColumn>
-          <TableHeaderColumn dataField='GamesPlayed' dataSort={ true }>Games Played</TableHeaderColumn>
-          <TableHeaderColumn dataField='Goals' dataSort={ true }>Goals</TableHeaderColumn>
-          <TableHeaderColumn dataField='Assists' dataSort={ true }>Assists</TableHeaderColumn>
-          <TableHeaderColumn dataField='PTS' dataSort={ true }>PTS</TableHeaderColumn>
+          options={ this.options }
+          cellEdit={ this.editProps }>
+          <TableHeaderColumn dataField='id' isKey editable={ false }>Player ID</TableHeaderColumn>
+          <TableHeaderColumn dataField='TeamCity' dataSort={ true } editable={ false }>City</TableHeaderColumn>
+          <TableHeaderColumn dataField='TeamName' dataSort={ true } editable={ false }>Team Name</TableHeaderColumn>
+          <TableHeaderColumn dataField='FirstName' dataSort={ true } editable={ false }>First Name</TableHeaderColumn>
+          <TableHeaderColumn dataField='LastName' dataSort={ true } editable={ false }>Last Name</TableHeaderColumn>
+          <TableHeaderColumn dataField='Age' dataSort={ true } editable={ false }>Age</TableHeaderColumn>
+          <TableHeaderColumn dataField='GamesPlayed' dataSort={ true } editable={ false }>Games Played</TableHeaderColumn>
+          <TableHeaderColumn dataField='Goals' dataSort={ true } editable={ false }>Goals</TableHeaderColumn>
+          <TableHeaderColumn dataField='Assists' dataSort={ true } editable={ false }>Assists</TableHeaderColumn>
+          <TableHeaderColumn dataField='Points' dataSort={ true } editable={ false }>PTS</TableHeaderColumn>
+          <TableHeaderColumn dataField="Cost" dataSort={true} editable={ true }>Cost</TableHeaderColumn>
+          <TableHeaderColumn editable={ true } customEditor={{getElement: gmSelector}}>Player Owned By</TableHeaderColumn>
         </BootstrapTable>
       </div>
     )

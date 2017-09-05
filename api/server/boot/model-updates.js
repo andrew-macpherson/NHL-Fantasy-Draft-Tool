@@ -28,4 +28,8 @@ module.exports = function(app) {
 	});
 */
 
+	app.dataSources.nhl_draft_tool.autoupdate('Gm', function(err) {
+		if (err) throw err;
+	});
+
 };

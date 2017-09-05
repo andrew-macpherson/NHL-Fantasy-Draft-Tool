@@ -33,11 +33,11 @@ class App extends React.Component {
         </div>
       </nav>
 
-      <header className="container">
+      <header className="container-fluid">
         <h1>NHL Fantasy Draft Tool</h1>
       </header>
 
-      <div className="container">
+      <div className="container-fluid">
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/player/:id" component={Player} />
 

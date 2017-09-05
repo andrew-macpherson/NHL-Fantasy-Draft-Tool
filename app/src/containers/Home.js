@@ -6,29 +6,53 @@ export class Home extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      players: []
+      players: [],
+      gms: []
     }
   }
 
   componentDidMount(){
-    // GET feed data
-    fetch('http://localhost:3001/api/Players', {
+    //GET Player List
+    fetch('http://localhost:3001/api/Players?filter[include]=gm', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Basic ' + btoa('andrewmac17' + ':' + 'Spo@rt#21')
-     },
+      },
     }).then(function(response) {
       return response.json();
     }).then(function(playerData){
       const players = playerData;
       return players;
     }).then((players) => {
+      //console.log(players);
       this.setState({players:players});
     })
     .catch(function(err) {
       console.log(err);
     });
+
+
+    //GET GM List
+    fetch('http://localhost:3001/api/Gms', {
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('andrewmac17' + ':' + 'Spo@rt#21')
+      },
+    }).then(function(response) {
+      return response.json();
+    }).then(function(gmData){
+      const gms = gmData;
+      return gms;
+    }).then((gms) => {
+      //console.log(gms);
+      this.setState({gms:gms});
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+
   }
 
 

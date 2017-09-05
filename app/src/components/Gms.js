@@ -26,8 +26,8 @@ export class Gms extends React.Component{
 					remote={ true }
 					options={ this.options }>
 					<TableHeaderColumn dataField='id' isKey>GM ID</TableHeaderColumn>
-					<TableHeaderColumn dataField='FirstName' dataSort={ true }>First Name</TableHeaderColumn>
-					<TableHeaderColumn dataField='LastName' dataSort={ true }>Last Name</TableHeaderColumn>
+					<TableHeaderColumn dataField='GmFirstName' dataSort={ true }>First Name</TableHeaderColumn>
+					<TableHeaderColumn dataField='GmLastName' dataSort={ true }>Last Name</TableHeaderColumn>
 				</BootstrapTable>
 			</div>
 		)

@@ -221,7 +221,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "gm": {
+      "type": "belongsTo",
+      "model": "Gm",
+      "foreignKey": "GmId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

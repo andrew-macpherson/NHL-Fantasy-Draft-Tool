@@ -7,11 +7,15 @@ export class PlayerListGmSelector extends React.Component{
 	}
 
 	render(){
+		const options = [];
+		for (var i=0; i < this.props.gmList.length; i++) {
+			options.push(<option>{this.props.gmList[i].GmTeamName}</option>);
+		}
+
 		return(
 			<select>
 				<option>No GM</option>
-				<option>GM 1</option>
-				<option>GM 2</option>
+				{options}
 			</select>
 		)
 	}

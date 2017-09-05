@@ -8,9 +8,8 @@ import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
 
 //Constants 
 
-const gmSelector = () => (<PlayerListGmSelector />);
-
 export class PlayerList extends React.Component {
+
   constructor(props){
     super(props);
 
@@ -26,6 +25,9 @@ export class PlayerList extends React.Component {
   }
 
   render(){
+    
+    const gmSelector = () => (<PlayerListGmSelector gmList={this.props.gms} />);
+
     return(
       <div>
         <BootstrapTable 
@@ -45,7 +47,7 @@ export class PlayerList extends React.Component {
           <TableHeaderColumn dataField='Assists' dataSort={ true } editable={ false }>Assists</TableHeaderColumn>
           <TableHeaderColumn dataField='Points' dataSort={ true } editable={ false }>PTS</TableHeaderColumn>
           <TableHeaderColumn dataField="Cost" dataSort={true} editable={ true }>Cost</TableHeaderColumn>
-          <TableHeaderColumn editable={ true } customEditor={{getElement: gmSelector}}>Player Owned By</TableHeaderColumn>
+          <TableHeaderColumn dataField="GmId" editable={ true } customEditor={{getElement: gmSelector}}>Player Owned By</TableHeaderColumn>
         </BootstrapTable>
       </div>
     )

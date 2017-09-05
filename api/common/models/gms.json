@@ -7,15 +7,15 @@
     "validateUpsert": true
   },
   "properties": {
-    "LastName": {
+    "GmLastName": {
       "type": "string",
       "required": true
     },
-    "FirstName": {
+    "GmFirstName": {
       "type": "string",
       "required": true
     },
-    "TeamName": {
+    "GmTeamName": {
       "type": "string",
       "required": true
     }

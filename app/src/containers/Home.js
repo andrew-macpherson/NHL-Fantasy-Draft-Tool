@@ -9,6 +9,9 @@ export class Home extends React.Component{
       players: [],
       gms: []
     }
+
+    //Bind Functions 
+
   }
 
   componentDidMount(){
@@ -25,7 +28,7 @@ export class Home extends React.Component{
       const players = playerData;
       return players;
     }).then((players) => {
-      //console.log(players);
+      console.log(players);
       this.setState({players:players});
     })
     .catch(function(err) {
@@ -83,11 +86,12 @@ export class Home extends React.Component{
     });
   }
 
+
   render(){
     return(
       <div>
         <h2>PLayer List</h2>
-        <PlayerList onSortChange={this.onSortChange.bind(this)} {...this.state} />
+        <PlayerList onUpdateGm={this.updatePlayerGm} onSortChange={this.onSortChange.bind(this)} {...this.state} />
       </div>
     )
   }

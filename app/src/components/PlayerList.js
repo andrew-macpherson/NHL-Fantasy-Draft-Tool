@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+//import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 //Import Components
 import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
@@ -9,7 +9,6 @@ import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
 //Constants 
 
 export class PlayerList extends React.Component {
-
   constructor(props){
     super(props);
 
@@ -21,16 +20,70 @@ export class PlayerList extends React.Component {
 
     this.editProps = {
       mode: 'click'
-    }
+    };
+
+  }
+
+  updatePlayerGm(params){
+    //console.log('made it?');
+    //GM ID: params.gmId;
+
+    // update players GM
+    //this.props.updatePlayerGm(params);
   }
 
   render(){
-    
-    const gmSelector = () => (<PlayerListGmSelector gmList={this.props.gms} />);
+    const gmSelector = () => (<PlayerListGmSelector onUpdateGm={this.updatePlayerGm} gmList={this.props.gms} />);
 
     return(
       <div>
-        <BootstrapTable 
+
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Player ID</th>
+              <th>City</th>
+              <th>Team Name</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th>Games Played</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>Points</th>
+              <th>Cost</th>
+              <th>Gm</th>
+            </tr>
+          </thead>
+          {this.props.players.map(( listValue, index ) => {
+            return (
+              <tr key={index}>
+                <td>{listValue.id}</td>
+                <td>{listValue.TeamCity}</td>
+                <td>{listValue.TeamName}</td>
+                <td>{listValue.FirstName}</td>
+                <td>{listValue.LastName}</td>
+                <td>{listValue.Age}</td>
+                <td>{listValue.GamesPlayed}</td>
+                <td>{listValue.Goals}</td>
+                <td>{listValue.Assists}</td>
+                <td>{listValue.Points}</td>
+                <td>{listValue.Cost}</td>
+                <td>
+                    {listValue.GmId}
+                    <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} gmList={this.props.gms} />
+                </td>
+              </tr>
+            );
+          })}
+        </table>
+      </div>
+    )
+  }
+}
+
+/*
+<BootstrapTable 
           data={this.props.players} 
           version='4' 
           remote={ true }
@@ -49,7 +102,4 @@ export class PlayerList extends React.Component {
           <TableHeaderColumn dataField="Cost" dataSort={true} editable={ true }>Cost</TableHeaderColumn>
           <TableHeaderColumn dataField="GmId" editable={ true } customEditor={{getElement: gmSelector}}>Player Owned By</TableHeaderColumn>
         </BootstrapTable>
-      </div>
-    )
-  }
-}
+        */

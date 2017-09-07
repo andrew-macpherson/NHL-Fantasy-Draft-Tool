@@ -4,9 +4,8 @@ import {Link} from 'react-router-dom';
 
 //Import Components
 import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
-
-
-//Constants 
+import {PlayerListCostInput} from '../components/PlayerListCostInput.js';
+ 
 
 export class PlayerList extends React.Component {
   constructor(props){
@@ -32,7 +31,7 @@ export class PlayerList extends React.Component {
     }
 
     //UPDATE PLAYER GM
-    fetch('http://localhost:3001/api/Players?access_token=tempaccesstoken',{
+    fetch('http://localhost:3001/api/Players',{
       method:'PATCH',
       body: JSON.stringify(playerData),
       headers: {
@@ -41,6 +40,29 @@ export class PlayerList extends React.Component {
       },
     }).then(function(response) {
       return console.log('Player GM updated');
+    }).catch(function(err){
+      alert(err);
+    });
+  }
+
+  //Update Player Cost
+  updatePlayerCost(params){
+    // SET DATA
+    var playerData = {
+      Cost:params.cost,
+      id: params.playerId
+    }
+
+    //UPDATE PLAYER GM
+    fetch('http://localhost:3001/api/Players',{
+      method:'PATCH',
+      body: JSON.stringify(playerData),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(function(response) {
+      return console.log('Player Cost updated');
     }).catch(function(err){
       alert(err);
     });
@@ -81,10 +103,11 @@ export class PlayerList extends React.Component {
                 <td>{listValue.Goals}</td>
                 <td>{listValue.Assists}</td>
                 <td>{listValue.Points}</td>
-                <td>{listValue.Cost}</td>
                 <td>
-                    {listValue.GmId}
-                    <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} playerId={listValue.id} gmList={this.props.gms} />
+                  <PlayerListCostInput updateCost={this.updatePlayerCost} playerId={listValue.id} defaultValue={listValue.Cost} />
+                </td>
+                <td>
+                    <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} currentGm={listValue.GmId} playerId={listValue.id} gmList={this.props.gms} />
                 </td>
               </tr>
             );

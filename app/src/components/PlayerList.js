@@ -33,7 +33,7 @@ export class PlayerList extends React.Component {
   }
 
   render(){
-    const gmSelector = () => (<PlayerListGmSelector onUpdateGm={this.updatePlayerGm} gmList={this.props.gms} />);
+    //const gmSelector = () => (<PlayerListGmSelector onUpdateGm={this.updatePlayerGm} gmList={this.props.gms} />);
 
     return(
       <div>
@@ -55,6 +55,7 @@ export class PlayerList extends React.Component {
               <th>Gm</th>
             </tr>
           </thead>
+          <tbody>
           {this.props.players.map(( listValue, index ) => {
             return (
               <tr key={index}>
@@ -76,6 +77,7 @@ export class PlayerList extends React.Component {
               </tr>
             );
           })}
+          </tbody>
         </table>
       </div>
     )

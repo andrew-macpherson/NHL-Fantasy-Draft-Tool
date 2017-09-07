@@ -15,7 +15,7 @@ export class PlayerListGmSelector extends React.Component{
 	render(){
 		const options = [];
 		for (var i=0; i < this.props.gmList.length; i++) {
-			options.push(<option value={this.props.gmList[i].id}>{this.props.gmList[i].GmTeamName}</option>);
+			options.push(<option key={this.props.gmList[i].id} value={this.props.gmList[i].id}>{this.props.gmList[i].GmTeamName}</option>);
 		}
 
 		return(

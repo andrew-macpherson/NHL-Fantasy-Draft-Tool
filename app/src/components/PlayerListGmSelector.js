@@ -9,7 +9,7 @@ export class PlayerListGmSelector extends React.Component{
 
 	onChange(evt){
 		//console.log(evt.currentTarget.value);
-		this.props.onUpdateGm({ gmId: evt.currentTarget.value });
+		this.props.onUpdateGm({ gmId: evt.currentTarget.value, playerId:this.props.playerId });
 	}
 
 	render(){

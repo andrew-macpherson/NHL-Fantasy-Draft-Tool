@@ -25,20 +25,32 @@ export class PlayerList extends React.Component {
   }
 
   updatePlayerGm(params){
-    //console.log('made it?');
-    //GM ID: params.gmId;
+    // SET DATA
+    var playerData = {
+      GmId:params.gmId,
+      id: params.playerId
+    }
 
-    // update players GM
-    //this.props.updatePlayerGm(params);
+    //UPDATE PLAYER GM
+    fetch('http://localhost:3001/api/Players?access_token=tempaccesstoken',{
+      method:'PATCH',
+      body: JSON.stringify(playerData),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(function(response) {
+      return console.log('Player GM updated');
+    }).catch(function(err){
+      alert(err);
+    });
   }
 
   render(){
-    //const gmSelector = () => (<PlayerListGmSelector onUpdateGm={this.updatePlayerGm} gmList={this.props.gms} />);
-
     return(
       <div>
 
-        <table className="table table-bordered">
+        <table className="table table-bordered table-sm">
           <thead>
             <tr>
               <th>Player ID</th>
@@ -72,7 +84,7 @@ export class PlayerList extends React.Component {
                 <td>{listValue.Cost}</td>
                 <td>
                     {listValue.GmId}
-                    <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} gmList={this.props.gms} />
+                    <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} playerId={listValue.id} gmList={this.props.gms} />
                 </td>
               </tr>
             );

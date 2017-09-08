@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 //import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 //Import Components
-import {PlayerListRow} from '../components/PlayerListRow.js';
+import {PlayerListRow} from '../../../scenes/home/components/PlayerListRow.js';
  
 
 export class PlayerList extends React.Component {

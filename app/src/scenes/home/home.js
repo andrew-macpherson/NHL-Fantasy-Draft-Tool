@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import {PlayerList} from '../components/PlayerList.js';
+import {PlayerList} from '../../scenes/home/components/PlayerList.js';
 
 export class Home extends React.Component{
   constructor(props){

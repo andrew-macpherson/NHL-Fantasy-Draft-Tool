@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
-import {PlayerListCostInput} from '../components/PlayerListCostInput.js';
+import {PlayerListGmSelector} from './PlayerListGmSelector.js';
+import {PlayerListCostInput} from './PlayerListCostInput.js';
 
 export class PlayerListRow extends React.Component{
 	constructor(props){

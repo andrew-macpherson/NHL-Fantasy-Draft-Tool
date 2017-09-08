@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 //Import Components
-import {Gms} from '../components/Gms.js';
+//import {Gms} from '../components/Gms.js';
 
-export class GmsContainer extends React.Component{
+export class Gms extends React.Component{
 	constructor(props){
 	    super(props);
 
@@ -33,7 +33,29 @@ export class GmsContainer extends React.Component{
 		return(
 			<div>
 				<h2>GM List</h2>
-				<Gms gms={this.state.gms} />
+				<div>
+				<table className="table table-bordered table-sm">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.gms.map(( listValue, index ) => {
+						return (
+							<tr>
+								<td>{listValue.id}</td>
+								<td>{listValue.GmFirstName}</td>
+								<td>{listValue.GmLastName}</td>
+							</tr>
+						);
+						})}
+					</tbody>
+				</table>
+				
+			</div>
 			</div>
 		)
 	}

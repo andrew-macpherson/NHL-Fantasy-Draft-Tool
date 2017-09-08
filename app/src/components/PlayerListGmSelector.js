@@ -24,7 +24,7 @@ export class PlayerListGmSelector extends React.Component{
 
 		return(
 			<select onChange={this.onChange}>
-				<option>No GM</option>
+				<option value="0">No GM</option>
 				{options}
 			</select>
 		)

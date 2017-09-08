@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom';
 //import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 //Import Components
-import {PlayerListGmSelector} from '../components/PlayerListGmSelector.js';
-import {PlayerListCostInput} from '../components/PlayerListCostInput.js';
+import {PlayerListRow} from '../components/PlayerListRow.js';
  
 
 export class PlayerList extends React.Component {
@@ -92,24 +91,7 @@ export class PlayerList extends React.Component {
           <tbody>
           {this.props.players.map(( listValue, index ) => {
             return (
-              <tr key={index}>
-                <td>{listValue.id}</td>
-                <td>{listValue.TeamCity}</td>
-                <td>{listValue.TeamName}</td>
-                <td>{listValue.FirstName}</td>
-                <td>{listValue.LastName}</td>
-                <td>{listValue.Age}</td>
-                <td>{listValue.GamesPlayed}</td>
-                <td>{listValue.Goals}</td>
-                <td>{listValue.Assists}</td>
-                <td>{listValue.Points}</td>
-                <td>
-                  <PlayerListCostInput updateCost={this.updatePlayerCost} playerId={listValue.id} defaultValue={listValue.Cost} />
-                </td>
-                <td>
-                    <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} currentGm={listValue.GmId} playerId={listValue.id} gmList={this.props.gms} />
-                </td>
-              </tr>
+              <PlayerListRow onUpdatePlayerCost={this.updatePlayerCost} onUpdateGm={this.updatePlayerGm} key={index} data={listValue} gmList={this.props.gms} />
             );
           })}
           </tbody>
@@ -119,6 +101,26 @@ export class PlayerList extends React.Component {
   }
 }
 
+/*
+<tr key={index} className={rowClass}>
+  <td>{listValue.id}</td>
+  <td>{listValue.TeamCity}</td>
+  <td>{listValue.TeamName}</td>
+  <td>{listValue.FirstName}</td>
+  <td>{listValue.LastName}</td>
+  <td>{listValue.Age}</td>
+  <td>{listValue.GamesPlayed}</td>
+  <td>{listValue.Goals}</td>
+  <td>{listValue.Assists}</td>
+  <td>{listValue.Points}</td>
+  <td>
+    <PlayerListCostInput updateCost={this.updatePlayerCost} playerId={listValue.id} defaultValue={listValue.Cost} />
+  </td>
+  <td>
+      <PlayerListGmSelector onUpdateGm={this.updatePlayerGm} currentGm={listValue.GmId} playerId={listValue.id} gmList={this.props.gms} />
+  </td>
+</tr>
+*/
 /*
 <BootstrapTable 
           data={this.props.players} 

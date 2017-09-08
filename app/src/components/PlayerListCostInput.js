@@ -14,7 +14,7 @@ export class PlayerListCostInput extends React.Component{
 	onChange(evt){
 		//console.log(evt.currentTarget.value);
 		this.setState({defaultValue:evt.currentTarget.value});
-		this.props.updateCost({ cost: evt.currentTarget.value, playerId:this.props.playerId });
+		this.props.onUpdatePlayerCost({ cost: evt.currentTarget.value, playerId:this.props.playerId });
 	}
 
 	render(){

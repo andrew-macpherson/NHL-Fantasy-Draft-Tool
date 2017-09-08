@@ -11,7 +11,6 @@ export class Home extends React.Component{
     }
 
     //Bind Functions 
-
   }
 
   componentDidMount(){

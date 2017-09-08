@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 //Import Components
-import {Gm} from '../components/Gm.js';
 
 export class GmContainer extends React.Component{
 	constructor(props){
@@ -19,7 +18,7 @@ export class GmContainer extends React.Component{
 
 		return(
 			<div>
-				<Gm />
+
 			</div>
 		)
 	}

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 export class Gms extends React.Component{
 	constructor(props){
@@ -13,22 +12,34 @@ export class Gms extends React.Component{
 	}
 
 	componentDidMount(){
-
+		
 	}
 
 	render(){
 		console.log(this.props);
 		return(
 			<div>
-				<BootstrapTable 
-					data={this.props.gms} 
-					version='4'
-					remote={ true }
-					options={ this.options }>
-					<TableHeaderColumn dataField='id' isKey>GM ID</TableHeaderColumn>
-					<TableHeaderColumn dataField='GmFirstName' dataSort={ true }>First Name</TableHeaderColumn>
-					<TableHeaderColumn dataField='GmLastName' dataSort={ true }>Last Name</TableHeaderColumn>
-				</BootstrapTable>
+				<table className="table table-bordered table-sm">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.props.gms.map(( listValue, index ) => {
+						return (
+							<tr>
+								<td>{listValue.id}</td>
+								<td>{listValue.GmFirstName}</td>
+								<td>{listValue.GmLastName}</td>
+							</tr>
+						);
+						})}
+					</tbody>
+				</table>
+				
 			</div>
 		)
 	}

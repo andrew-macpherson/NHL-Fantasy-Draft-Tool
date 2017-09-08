@@ -8,8 +8,8 @@ import {Player} from '../components/Player.js';
 
 //Import Containers
 import {Home} from '../containers/Home.js';
-import {GmsContainer} from '../containers/Gms.js';
-import {GmContainer} from '../containers/Gm.js';
+import {GmsContainer} from '../containers/GmsContainer.js';
+import {GmContainer} from '../containers/GmContainer.js';
 
 class App extends React.Component {
   render() {

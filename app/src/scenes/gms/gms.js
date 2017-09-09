@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 //Import Components
-//import {Gms} from '../components/Gms.js';
 
 export class Gms extends React.Component{
 	constructor(props){
@@ -40,15 +39,17 @@ export class Gms extends React.Component{
 							<th>ID</th>
 							<th>First Name</th>
 							<th>Last Name</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						{this.state.gms.map(( listValue, index ) => {
+						{this.state.gms.map(( gm, index ) => {
 						return (
 							<tr>
-								<td>{listValue.id}</td>
-								<td>{listValue.GmFirstName}</td>
-								<td>{listValue.GmLastName}</td>
+								<td>{gm.id}</td>
+								<td>{gm.GmFirstName}</td>
+								<td>{gm.GmLastName}</td>
+								<td><Link className="btn btn-primary btn-sm" to={'gm/'+gm.id}>View Team</Link></td>
 							</tr>
 						);
 						})}

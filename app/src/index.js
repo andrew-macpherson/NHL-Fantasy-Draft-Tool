@@ -9,12 +9,12 @@ import {BrowserRouter} from 'react-router-dom';
 //Import Containers
 import {Home} from './scenes/home/home.js';
 import {Gms} from './scenes/gms/gms.js';
+import {Gm} from './scenes/gm/gm.js';
 
 
 //import any assets we may need
 import './libraries/bootstrap/css/bootstrap.min.css';
 //import './libraries/bootstrap/js/bootstrap.min.js';
-import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import './app.css';
 
 
@@ -49,8 +49,8 @@ class App extends React.Component {
 
       <div className="container-fluid">
         <Route exact={true} path="/" component={Home} />
-
         <Route exact={true} path="/gms" component={Gms} />
+        <Route exact={true} path="/gm/:id" component={Gm} />
       </div>
     </div>
     )

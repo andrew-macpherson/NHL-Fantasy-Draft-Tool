@@ -1,6 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
-import {PlayerList} from '../../scenes/home/components/PlayerList.js';
+import {PlayerList} from '../../components/playerList/PlayerList.js';
 
 export class Home extends React.Component{
   constructor(props){
@@ -18,8 +17,7 @@ export class Home extends React.Component{
     fetch('http://localhost:3001/api/Players?filter[include]=gm', {
       method: 'get',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('andrewmac17' + ':' + 'Spo@rt#21')
+        'Content-Type': 'application/json'
       },
     }).then(function(response) {
       return response.json();
@@ -48,7 +46,6 @@ export class Home extends React.Component{
       const gms = gmData;
       return gms;
     }).then((gms) => {
-      //console.log(gms);
       this.setState({gms:gms});
     })
     .catch(function(err) {
@@ -59,7 +56,6 @@ export class Home extends React.Component{
 
 
   onSortChange(sortName, sortOrder) {
-    console.log(this.state.players);
     if (sortOrder === 'asc') {
       this.state.players.sort(function(a, b) {
         if (parseInt(a[sortName], 10) > parseInt(b[sortName], 10)) {
@@ -90,7 +86,7 @@ export class Home extends React.Component{
     return(
       <div>
         <h2>PLayer List</h2>
-        <PlayerList onUpdateGm={this.updatePlayerGm} onSortChange={this.onSortChange.bind(this)} {...this.state} />
+        <PlayerList onSortChange={this.onSortChange.bind(this)} {...this.state} />
       </div>
     )
   }

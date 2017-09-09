@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 import {PlayerListGmSelector} from './PlayerListGmSelector.js';
 import {PlayerListCostInput} from './PlayerListCostInput.js';

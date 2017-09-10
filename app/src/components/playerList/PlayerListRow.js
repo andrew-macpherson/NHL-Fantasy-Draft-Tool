@@ -7,8 +7,8 @@ export class PlayerListRow extends React.Component{
 	constructor(props){
 		super(props);
 
-		this.onUpdateGm = this.onUpdateGm.bind(this);
-		this.onUpdatePlayerCost = this.onUpdatePlayerCost.bind(this);
+		this.handleUpdateGm = this.handleUpdateGm.bind(this);
+		this.handleUpdatePlayerCost = this.handleUpdatePlayerCost.bind(this);
 
 		this.state = {
 			rowClass: ''
@@ -22,12 +22,12 @@ export class PlayerListRow extends React.Component{
 		this.setState({rowClass:rowClass});
 	}
 
-	onUpdateGm(params){
+	handleUpdateGm(params){
 		//Pass to update function
 		this.props.onUpdateGm(params);
 
 		//Set row state color;
-		console.log(params.gmId);
+		//console.log(params.gmId);
 		if(params.gmId != 0){
 			this.setState({rowClass:'table-danger'});
 		}else{
@@ -35,7 +35,7 @@ export class PlayerListRow extends React.Component{
 		}
 	}
 
-	onUpdatePlayerCost(params){
+	handleUpdatePlayerCost(params){
 		this.props.onUpdatePlayerCost(params);
 	}
 
@@ -58,10 +58,10 @@ export class PlayerListRow extends React.Component{
 			<td>{this.props.data.Assists}</td>
 			<td>{this.props.data.Points}</td>
 			<td>
-				<PlayerListCostInput onUpdatePlayerCost={this.onUpdatePlayerCost} playerId={this.props.data.id} defaultValue={this.props.data.Cost} />
+				<PlayerListCostInput onUpdatePlayerCost={this.handleUpdatePlayerCost} playerId={this.props.data.id} defaultValue={this.props.data.Cost} />
 			</td>
 			<td>
-				<PlayerListGmSelector onUpdateGm={this.onUpdateGm} currentGm={this.props.data.GmId} playerId={this.props.data.id} gmList={this.props.gmList} />
+				<PlayerListGmSelector onUpdateGm={this.handleUpdateGm} currentGm={this.props.data.GmId} playerId={this.props.data.id} gmList={this.props.gmList} />
 			</td>
 		</tr>
 		)

@@ -66,7 +66,7 @@ export class PlayerList extends React.Component {
   }
 
   render(){
-    console.log(this.props.players);
+    //console.log(this.props.players);
     return(
       <div>
 

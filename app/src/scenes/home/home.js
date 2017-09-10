@@ -25,7 +25,6 @@ export class Home extends React.Component{
       const players = playerData;
       return players;
     }).then((players) => {
-      console.log(players);
       this.setState({players:players});
     })
     .catch(function(err) {

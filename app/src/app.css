@@ -6,10 +6,15 @@ header{
   padding:30px 0;
 }
 
-.recipe-list{
+.gm-list{
 
 }
-.recipe-list > div{
-  width: 350px;
-  margin:15px;
+
+.add-gm{
+	margin-right:40px;
 }
+
+.gm-list{
+	width: 100%;
+}
+

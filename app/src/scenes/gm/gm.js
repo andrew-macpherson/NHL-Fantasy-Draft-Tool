@@ -11,7 +11,8 @@ export class Gm extends React.Component{
 	    	gm_id: gm_id,
 	    	gms: [],
 	    	gm:[],
-	    	players:[]
+	    	players:[],
+	    	gm_spent:0
 	    }
 	}
 
@@ -61,16 +62,27 @@ export class Gm extends React.Component{
 			return response.json();
 		}).then((players) => {
 			this.setState({players:players});
+
+			var gmSpent = 0;
+			for(let i=0; i<players.length; i++){
+				console.log(players[i].Cost);
+				gmSpent += players[i].Cost;
+			}
+
+			//console.log(gmSpent);
+			this.setState({gm_spent:gmSpent});
+
 		}).catch(function(err){
 			console.log(err);
 		});
 	}
 
 	render(){
-		console.log(this.state.players);
 		return(
 			<div>
 				<p>Name: {this.state.gm.GmFirstName} {this.state.gm.GmLastName}</p>
+				<p>Spent: {this.state.gm_spent}</p>
+				<p>Drafted: {this.state.players.length}</p>
 
 				<h2>Players</h2>
 		        <PlayerList players={this.state.players} gms={this.state.gms} />

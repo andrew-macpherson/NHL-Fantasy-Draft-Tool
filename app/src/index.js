@@ -14,6 +14,7 @@ import {Gm} from './scenes/gm/gm.js';
 
 //import any assets we may need
 import './libraries/bootstrap/css/bootstrap.min.css';
+//import './libraries/jquery.js';
 //import './libraries/bootstrap/js/bootstrap.min.js';
 import './app.css';
 
@@ -43,11 +44,7 @@ class App extends React.Component {
         </div>
       </nav>
 
-      <header className="container-fluid">
-        <h1>NHL Fantasy Draft Tool</h1>
-      </header>
-
-      <div className="container-fluid">
+      <div className="container">
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/gms" component={Gms} />
         <Route exact={true} path="/gm/:id" component={Gm} />

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 //Import Components
 import {AddGmButton} from '../../scenes/gms/components/AddGmButton.js';
 import {AddGmForm} from '../../scenes/gms/components/AddGmForm.js';
+import {GmRow} from '../../scenes/gms/components/GmRow.js';
 
 export class Gms extends React.Component{
 	constructor(props){
@@ -13,6 +14,7 @@ export class Gms extends React.Component{
 	    this.handleLastNameChange = this.handleLastNameChange.bind(this);
 	    this.handleTeamNameChange = this.handleTeamNameChange.bind(this);
 	    this.handleAddGm = this.handleAddGm.bind(this);
+	    this.handleDeleteGm = this.handleDeleteGm.bind(this);
 
 	    this.state = {
 	    	gms:[],
@@ -21,6 +23,10 @@ export class Gms extends React.Component{
 	}
 
 	componentDidMount(){
+		this.fetchGms();
+	}
+
+	fetchGms(){
 		//Get list of GMs
 		fetch('http://localhost:3001/api/Gms',{
 			'method': 'get',
@@ -30,7 +36,6 @@ export class Gms extends React.Component{
 		}).then(function(response){
 			return response.json();
 		}).then((gmData) => {
-			console.log(gmData);
 			this.setState({gms:gmData});
 		});
 	}
@@ -60,11 +65,6 @@ export class Gms extends React.Component{
 	}
 
 	handleAddGm(evt){
-
-		console.log(this.state.add_gm_form.GmFirstName);
-		console.log(this.state.add_gm_form.GmLastName);
-		console.log(this.state.add_gm_form.GmTeamName);
-
 		const gmData = {
 			GmFirstName: this.state.add_gm_form.GmFirstName,
 			GmLastName: this.state.add_gm_form.GmLastName,
@@ -79,21 +79,19 @@ export class Gms extends React.Component{
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json'
 	      },
-	    }).then(function(response) {
+	    }).then((response) => {
+	    	this.fetchGms();
 	    	alert("General Manager was added successfully");
 			return console.log('GM Added');
 	    }).catch(function(err){
 	      alert(err);
 	    });
 
-
-		
-
 		// reset form 
 		this.setState({add_gm_form:{GmTeamName:"",GmLastName:"",GmTeamName:""}});
 	}
 
-	handleDeleteGm(props){
+	handleDeleteGm(id,evt){
 		/*
 		const r = confirm('are you sure?');
 		if(r == true){
@@ -101,17 +99,19 @@ export class Gms extends React.Component{
 		}
 		*/
 		//Delete Gm
-	    fetch('http://localhost:3001/api/Gms',{
+	    fetch('http://localhost:3001/api/Gms/'+id,{
 	      method:'DELETE',
-	      body: JSON.stringify({id:props.gm_id}),
+	      body: {},
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json'
 	      },
-	    }).then(function(response) {
-	    	alert("General Manager was added successfully");
-			return console.log('GM Added');
-	    }).catch(function(err){
+	    }).then((response) => {
+	    	alert("General Manager was deleted successfully");
+	    	this.fetchGms();
+			return console.log('GM Deleted');
+	    })
+	    .catch(function(err){
 	      alert(err);
 	    });
 
@@ -125,11 +125,12 @@ export class Gms extends React.Component{
 					<div className="add-gm">
 						<h4>Add GM</h4>
 						<AddGmForm 
-						onFirstNameChange={this.handleFirstNameChange}
-						onLastNameChange={this.handleLastNameChange}
-						onTeamNameChange={this.handleTeamNameChange}
-						onAddGm={this.handleAddGm}
-						{...this.state} />
+							onFirstNameChange={this.handleFirstNameChange}
+							onLastNameChange={this.handleLastNameChange}
+							onTeamNameChange={this.handleTeamNameChange}
+							onAddGm={this.handleAddGm}
+							{...this.state} 
+						/>
 					</div>
 					<div className="gm-list">
 						<h4>General Manager List</h4>
@@ -145,15 +146,11 @@ export class Gms extends React.Component{
 							<tbody>
 								{this.state.gms.map(( gm, index ) => {
 								return (
-									<tr>
-										<td>{gm.id}</td>
-										<td>{gm.GmFirstName}</td>
-										<td>{gm.GmLastName}</td>
-										<td>
-											<Link className="btn btn-primary btn-sm" to={'gm/'+gm.id}>View Team</Link>
-											<a className="btn btn-danger btn-sm" gm_id={gm.id} onClick={this.handleDeleteGm}>Delete</a>
-										</td>
-									</tr>
+									<GmRow 
+										key={gm.id}
+										gm={gm}
+										onHandleDeleteGm={this.handleDeleteGm}
+									/>
 								);
 								})}
 							</tbody>

@@ -14,7 +14,7 @@ export class Home extends React.Component{
 
   componentDidMount(){
     //GET Player List
-    fetch('http://localhost:3001/api/Players?filter[include]=gm', {
+    fetch('http://localhost:3001/api/Players?filter[order]=Points%20DESC&[include]=gm', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json'

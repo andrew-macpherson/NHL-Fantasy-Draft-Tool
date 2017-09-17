@@ -22,8 +22,7 @@ export class Gm extends React.Component{
 	    fetch('http://localhost:3001/api/Gms', {
 	      method: 'get',
 	      headers: {
-	        'Content-Type': 'application/json',
-	        'Authorization': 'Basic ' + btoa('andrewmac17' + ':' + 'Spo@rt#21')
+	        'Content-Type': 'application/json'
 	      },
 	    }).then(function(response) {
 	      return response.json();
@@ -52,7 +51,7 @@ export class Gm extends React.Component{
 		});
 
 
-		//Get GM teams 
+		//Get GM players 
 		fetch('http://localhost:3001/api/Gms/'+this.state.gm_id+'/player', {
 			method: 'get',
 			headers: {

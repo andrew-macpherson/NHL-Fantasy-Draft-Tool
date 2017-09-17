@@ -1,3 +1,7 @@
+body{
+	font-size: 0.8rem;
+}
+
 header{
   text-align: center;
 }
@@ -18,3 +22,11 @@ header{
 	width: 100%;
 }
 
+
+.costInput{
+	width: 50px;
+}
+
+.gmSelect{
+	width: 75px;
+}

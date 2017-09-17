@@ -73,16 +73,23 @@ export class PlayerList extends React.Component {
         <table className="table table-bordered table-sm">
           <thead>
             <tr>
-              <th>Player ID</th>
-              <th>City</th>
-              <th>Team Name</th>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>ID</th>
+              <th>Team</th>
+              <th>Name</th>
+              <th>Position</th>
               <th>Age</th>
               <th>Games Played</th>
               <th>Goals</th>
               <th>Assists</th>
               <th>Points</th>
+
+              <th>+/-</th>
+              <th>PIM</th>
+              <th>PPG</th>
+              <th>PPA</th>
+              <th>SHP</th>
+              <th>GWG</th>
+
               <th>Cost</th>
               <th>Gm</th>
             </tr>

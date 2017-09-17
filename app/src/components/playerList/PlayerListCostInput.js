@@ -18,7 +18,7 @@ export class PlayerListCostInput extends React.Component{
 
 	render(){
 		return(
-			<input value={this.state.defaultValue} onChange={this.onChange} />
+			<input className="costInput" value={this.state.defaultValue} onChange={this.onChange} />
 		)
 	}
 }

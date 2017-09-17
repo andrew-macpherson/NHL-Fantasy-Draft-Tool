@@ -10,6 +10,8 @@ import {BrowserRouter} from 'react-router-dom';
 import {Home} from './scenes/home/home.js';
 import {Gms} from './scenes/gms/gms.js';
 import {Gm} from './scenes/gm/gm.js';
+import {Player} from './scenes/player/player.js';
+import {AddPlayer} from './scenes/player/addPlayer.js';
 
 
 //import any assets we may need
@@ -40,14 +42,19 @@ class App extends React.Component {
             <li className="nav-item">
               <Link className="nav-link" to="/gms">GMs</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/add-player">Add Player</Link>
+            </li>
           </ul>
         </div>
       </nav>
 
       <div className="container">
         <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/add-player" component={AddPlayer} />
         <Route exact={true} path="/gms" component={Gms} />
         <Route exact={true} path="/gm/:id" component={Gm} />
+        <Route exact={true} path="/player/:id" component={Player} />
       </div>
     </div>
     )

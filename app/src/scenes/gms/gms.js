@@ -36,7 +36,36 @@ export class Gms extends React.Component{
 		}).then(function(response){
 			return response.json();
 		}).then((gmData) => {
+			
 			this.setState({gms:gmData});
+
+			for(let i=0; i < gmData.length; i++){
+				//Get GM players 
+				fetch('http://localhost:3001/api/Gms/'+gmData[i].id+'/player', {
+					method: 'get',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+				}).then(function(response){
+					return response.json();
+				}).then((players) => {
+
+					var gmSpent = 0;
+					for(let i=0; i<players.length; i++){
+						gmSpent += players[i].Cost;
+					}
+
+					gmData[i].spent = gmSpent;
+					gmData[i].totalPlayers = players.length;
+
+					this.setState({gms:gmData});
+
+				}).catch(function(err){
+					console.log(err);
+				});
+			}
+
+			
 		});
 	}
 
@@ -138,8 +167,11 @@ export class Gms extends React.Component{
 							<thead>
 								<tr>
 									<th>ID</th>
+									<th>Team Name</th>
 									<th>First Name</th>
 									<th>Last Name</th>
+									<th>Spent</th>
+									<th>Total Players</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -149,6 +181,8 @@ export class Gms extends React.Component{
 									<GmRow 
 										key={gm.id}
 										gm={gm}
+										spent="10"
+										totalPlayers="12"
 										onHandleDeleteGm={this.handleDeleteGm}
 									/>
 								);

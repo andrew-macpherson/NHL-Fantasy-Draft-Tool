@@ -171,6 +171,7 @@ export class Gms extends React.Component{
 									<th>First Name</th>
 									<th>Last Name</th>
 									<th>Spent</th>
+									<th>Money Left</th>
 									<th>Total Players</th>
 									<th></th>
 								</tr>

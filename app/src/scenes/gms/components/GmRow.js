@@ -9,6 +9,7 @@ export const GmRow = (props) => {
 			<td>{props.gm.GmFirstName}</td>
 			<td>{props.gm.GmLastName}</td>
 			<td>{props.gm.spent}</td>
+			<td>{300 - props.gm.spent}</td>
 			<td>{props.gm.totalPlayers}</td>
 			<td>
 				<div className="btn-group" role="group" aria-label="Basic example">

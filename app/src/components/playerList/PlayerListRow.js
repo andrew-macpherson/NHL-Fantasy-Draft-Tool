@@ -62,6 +62,11 @@ export class PlayerListRow extends React.Component{
 			<td>{this.props.data.ShorthandedGoals}</td>
 			<td>{this.props.data.GameWinningGoals}</td>
 
+			<td>{this.props.data.Wins}</td>
+			<td>{this.props.data.GoalsAgainst}</td>
+			<td>{this.props.data.SavePercentage}</td>
+			<td>{this.props.data.Shutouts}</td>
+
 			<td>
 				<PlayerListCostInput onUpdatePlayerCost={this.handleUpdatePlayerCost} playerId={this.props.data.id} defaultValue={this.props.data.Cost} />
 			</td>

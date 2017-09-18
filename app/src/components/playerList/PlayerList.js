@@ -90,6 +90,11 @@ export class PlayerList extends React.Component {
               <th>SHP</th>
               <th>GWG</th>
 
+              <th>Wins</th>
+              <th>GAA</th>
+              <th>Save %</th>
+              <th>Shoutouts</th>
+
               <th>Cost</th>
               <th>Gm</th>
             </tr>
